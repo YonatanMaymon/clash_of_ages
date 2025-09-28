@@ -7,9 +7,6 @@ class_name UnitSpawner
 ## Which team this spawner belongs to
 @export var team: Actor.Team = Actor.Team.LEFT
 
-## Where units appear (if null, use this node's position)
-@export var spawn_point: Node2D
-
 ## Auto-spawn control
 @export var auto_spawn: bool = false
 @export var spawn_interval: float = 2.0  # seconds
@@ -35,7 +32,7 @@ func spawn_unit() -> void:
 		return  # Stop if max is reached
 
 	var unit: Actor = unit_scene.instantiate()
-	unit.global_position = spawn_point.global_position if spawn_point else global_position
+	unit.global_position = global_position 
 	unit.assign_team(team)
 
 	get_tree().current_scene.add_child(unit)

@@ -24,6 +24,9 @@ func face_left() ->void:
 func take_damage(damage:int) -> void:
 	health.take_damage(damage)
 
+func is_dead() -> bool:
+	return health.is_dead()
+
 func _on_death():
 	die()
 	
